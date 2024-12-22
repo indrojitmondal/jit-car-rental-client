@@ -7,7 +7,7 @@ import logo from '../assets/images/logo.png'
 import { IoMdMenu } from "react-icons/io";
 import { AuthContext } from '../providers/AuthProvider';
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const location = useLocation();
   const path = location.pathname;
   const [menu, setMenu] = useState(false);
@@ -16,13 +16,7 @@ const Navbar = () => {
     setMenu(!menu);
   }
 
-  // const links = (
-  //   <div className='flex flex-col md:flex-row items-center text-lg gap-5'>
-  //     <NavLink to={'/'}>Home</NavLink>
-  //     <NavLink to={'/reviews'}>Available Cars</NavLink>
-    
-  //   </div>
-  // );
+ 
 
   return (
     <div className='navbar bg-header_bg text-white shadow-sm container px-4 mx-auto'>
@@ -49,7 +43,7 @@ const Navbar = () => {
         </ul>
 
         {user && (
-          <div className='dropdown dropdown-end z-50'>
+          <div className='dropdown  dropdown-end z-50 mt-1'>
             <div
               tabIndex={0}
               role='button'
@@ -65,26 +59,18 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'
+              className='menu menu-sm dropdown-content  z-[1] shadow bg-header_bg text-white rounded-md  w-52'
             >
-              <li>
-                <Link to='/add-job' className='justify-between'>
-                  Add Job
-                </Link>
-              </li>
-              <li>
-                <Link to='/my-posted-jobs'>My Posted Jobs</Link>
-              </li>
-              <li>
-                <Link to='/my-bids'>My Bids</Link>
-              </li>
-              <li>
-                <Link to='/bid-requests'>Bid Requests</Link>
-              </li>
+           
+              {/* <li>
+                
+                 <h2 className='text-center'> {user?.displayName}</h2>
+              
+              </li> */}
               <li className='mt-2'>
                 <button
                   onClick={logOut}
-                  className='bg-gray-200 block text-center'
+                  className='hover:bg-header_bg block hover:text-white text-center'
                 >
                   Logout
                 </button>

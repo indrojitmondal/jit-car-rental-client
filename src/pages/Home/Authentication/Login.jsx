@@ -19,6 +19,7 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     
     const { signIn, signInWithGoogle, user, loading } = useContext(AuthContext)
+    console.log('Testing user',user);
     useEffect(() => {
         if (user) {
             navigate('/')
@@ -58,8 +59,8 @@ const Login = () => {
         console.log({ email, pass })
         try {
             //User Login
-            const result = await signIn(email, pass)
-            console.log(result.user)
+            const result = await signIn(email, pass);
+            console.log('After SignIn',result.user);
             const { data } = await axios.post(
                 `${import.meta.env.VITE_API_URL}/jwt`,
                 {
@@ -175,7 +176,8 @@ const Login = () => {
                                 autoComplete='current-password'
                                 name='password'
                                 className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
-                                type='password'
+                                
+                                type={showPassword ? 'text' : 'password'}
                             />
                              <button type='button' onClick={handlePasswordShow} className='absolute right-4 top-10'> {showPassword ? <FiEye /> : <FiEyeOff />}  </button>
                         
