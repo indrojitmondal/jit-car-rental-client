@@ -16,13 +16,13 @@ const Navbar = () => {
     setMenu(!menu);
   }
 
-  const links = (
-    <div className='flex flex-col md:flex-row items-center text-lg gap-5'>
-      <NavLink to={'/'}>Home</NavLink>
-      <NavLink to={'/reviews'}>Available Cars</NavLink>
+  // const links = (
+  //   <div className='flex flex-col md:flex-row items-center text-lg gap-5'>
+  //     <NavLink to={'/'}>Home</NavLink>
+  //     <NavLink to={'/reviews'}>Available Cars</NavLink>
     
-    </div>
-  );
+  //   </div>
+  // );
 
   return (
     <div className='navbar bg-header_bg text-white shadow-sm container px-4 mx-auto'>
@@ -35,15 +35,15 @@ const Navbar = () => {
       <div className='flex-none'>
         <ul className='menu menu-horizontal px-1'>
           <li>
-            <Link to='/'>Home</Link>
+            <NavLink to='/'>Home</NavLink>
           </li>
           <li>
-            <Link to='/jobs'>Available Cars</Link>
+            <NavLink to='/jobs'>Available Cars</NavLink>
           </li>
 
           {!user && (
             <li>
-              <Link to='/login'>Login</Link>
+              <NavLink to='/login'>Login</NavLink>
             </li>
           )}
         </ul>
