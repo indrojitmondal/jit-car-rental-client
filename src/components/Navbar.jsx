@@ -25,69 +25,74 @@ const Navbar = () => {
   );
 
   return (
-    <div>
-      <div className="navbar py-5 bg-header_bg text-white">
-        <div className="navbar-start">
+    <div className='navbar bg-header_bg text-white shadow-sm container px-4 mx-auto'>
+      <div className='flex-1'>
+        <Link to='/' className='flex gap-2 items-center'>
+          <img className='w-auto h-7' src={logo} alt='' />
+          <span className='font-bold'>JIT CAR HOUSE</span>
+        </Link>
+      </div>
+      <div className='flex-none'>
+        <ul className='menu menu-horizontal px-1'>
+          <li>
+            <Link to='/'>Home</Link>
+          </li>
+          <li>
+            <Link to='/jobs'>Available Cars</Link>
+          </li>
 
+          {!user && (
+            <li>
+              <Link to='/login'>Login</Link>
+            </li>
+          )}
+        </ul>
 
-
-          <div className='flex gap-1 items-center'>
-            <img src={logo} className='w-16 h-16 ' alt="logo" />
-           
-
-            <h2 className='text-lg  text-orange-400'>JIT Car House</h2>
-          </div>
-        </div>
-        <div className="navbar-center hidden lg:flex lg:flex-col">
-          <ul className="menu menu-horizontal px-1">
-            {links}
-          </ul>
-
-
-        </div>
-        {user ? (
-          <div className="navbar-end md:text-lg flex gap-5 items-center">
-            <button className='btn'>log Out</button>
-          </div>
-        ) : (
-          <div className="navbar-end flex items-center gap-5">
-            <Link to={'/login'} className='text-orange-400 text-lg hidden lg:block'>Log-in</Link>
-            <Link to={'/register'} className='text-orange-400 text-lg hidden lg:block'>Register</Link>
-         
+        {user && (
+          <div className='dropdown dropdown-end z-50'>
+            <div
+              tabIndex={0}
+              role='button'
+              className='btn btn-ghost btn-circle avatar'
+            >
+              <div title={user?.displayName} className='w-10 rounded-full'>
+                <img
+                  referrerPolicy='no-referrer'
+                  alt='User Profile Photo'
+                  src={user?.photoURL}
+                />
+              </div>
+            </div>
+            <ul
+              tabIndex={0}
+              className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'
+            >
+              <li>
+                <Link to='/add-job' className='justify-between'>
+                  Add Job
+                </Link>
+              </li>
+              <li>
+                <Link to='/my-posted-jobs'>My Posted Jobs</Link>
+              </li>
+              <li>
+                <Link to='/my-bids'>My Bids</Link>
+              </li>
+              <li>
+                <Link to='/bid-requests'>Bid Requests</Link>
+              </li>
+              <li className='mt-2'>
+                <button
+                  onClick={logOut}
+                  className='bg-gray-200 block text-center'
+                >
+                  Logout
+                </button>
+              </li>
+            </ul>
           </div>
         )}
-
-        <div onClick={handleMenuBar} className=" lg:hidden">
-          <div className="btn btn-ghost border-1 lg:hidden lg:bg-orange-400 text-lg">
-
-            <IoMdMenu className={` ${!menu? 'block text-orange-400': 'hidden'}  `} />
-            
-            <RxCross1 className={` ${menu? 'block text-orange-400': 'hidden'}  `} />
-          </div>
-        </div>
       </div>
-
-      <div className='lg:hidden'>
-        <section className={`${menu ? 'block ' : 'hidden'} `} >
-          <ul
-            id="menuDropdown"
-            className=" bg-gray-300  text-center space-y-4 w-full p-2 shadow text-base lg:flex lg:flex-col gap-5"
-          >
-
-            {/* {links} */}
-
-            <div className='flex flex-col md:flex-row items-center text-lg gap-5'>
-              <NavLink to={'/'}>Home</NavLink>
-              <NavLink to={'/reviews'}>Available Cars</NavLink>
-              <NavLink to={'/login'} className=''>Log-in</NavLink>
-              <NavLink to={'/register'} className=''>Register</NavLink>
-         
-            </div>
-
-          </ul>
-        </section>
-      </div>
-
     </div>
   );
 };

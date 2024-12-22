@@ -24,7 +24,7 @@ return (
                         {/* start from here */}
                         <div className='text-white  bg-black'>
 
-                            <h2>JIT INC</h2>
+                            
                             <img className='mx-auto pt-4 mt-36 md:mt-0 w-36 h-36' src={logo} alt="" />
 
 
