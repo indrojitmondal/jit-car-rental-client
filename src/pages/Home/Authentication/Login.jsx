@@ -1,5 +1,6 @@
 
 
+
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 // import bgImg from '../../assets/images/login.jpg'
 import logo from '../../../assets/images/logo.png'
@@ -101,6 +102,22 @@ const Login = () => {
                 <img className='h-60 mx-auto pt-5' src={logo} alt="" />
 
             </Link>
+            <h2 className='text-2xl text-center ml-1 font-bold text-orange-400'>JIT CAR HOUSE</h2>
+        
+            <div className='flex pt-6 justify-center'>
+                <p className=' text-xl font-bold text-center text-gray-600 '>
+                    Sign In <br />
+
+                </p>
+
+            </div>
+            <div className='flex justify-center'>
+                <p className=' text-xl  text-center text-gray-600 '>
+                    Explore More Car on JIT CAR HOUSE <br />
+
+                </p>
+
+            </div>
             <div className='flex  min-h-[calc(100vh-306px)] my-12'>
 
                 <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>

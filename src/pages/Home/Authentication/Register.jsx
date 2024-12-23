@@ -104,13 +104,15 @@ const Registration = () => {
        <img className='h-60 mx-auto pt-5' src={logo} alt="" />
       
        </Link>
-       <div className='flex justify-center'>
+       <h2 className='text-2xl text-center ml-1 font-bold text-orange-400'>JIT CAR HOUSE</h2>
+        
+       <div className='flex pt-6 justify-center'>
           <p className=' text-xl font-bold text-center text-gray-600 '>
             Sign Up <br />
           
           </p>
 
-          </div>
+         </div>
           <div className='flex justify-center'>
           <p className=' text-xl  text-center text-gray-600 '>
             Explore More Car on JIT CAR HOUSE <br />

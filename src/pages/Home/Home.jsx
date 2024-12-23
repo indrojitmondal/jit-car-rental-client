@@ -5,6 +5,7 @@ import WhyChooseUS from './WhyChooseUS';
 import RecentListings from './RecentListings';
 import SpecialOffers from './SpecialOffers';
 import Testimonials from './Testimonials';
+import HowItWorks from './HowItWorks';
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
                <RecentListings></RecentListings>
                {/* Extra Sections */} 
                <Testimonials></Testimonials>
+               <HowItWorks></HowItWorks>
                 {/* Special offer section */}
                <SpecialOffers></SpecialOffers>
                <h2></h2>
