@@ -1,6 +1,10 @@
 import React from 'react';
 import Banner from './Banner';
 import Carousel from '../../components/Carousel';
+import WhyChooseUS from './WhyChooseUS';
+import RecentListings from './RecentListings';
+import SpecialOffers from './SpecialOffers';
+import Testimonials from './Testimonials';
 
 const Home = () => {
     return (
@@ -8,13 +12,13 @@ const Home = () => {
                {/* Banner Section */}
                <Carousel></Carousel>
                {/* Why Choose Us Section */}
-               <h2 className='text-4xl text-center  font-bold'>Why Choose US </h2>
+                <WhyChooseUS></WhyChooseUS>
                {/* Recent Listings */}
-               <h2 className='text-4xl text-center font-bold'>Recent Listings</h2>
+               <RecentListings></RecentListings>
                {/* Extra Sections */} 
-               <h2 className='text-4xl text-center font-bold'>Extra Sections(With Animations)</h2>
-               {/* Special Offers */} 
-               <h2 className='text-4xl text-center font-bold'>Special offers</h2>
+               <Testimonials></Testimonials>
+                {/* Special offer section */}
+               <SpecialOffers></SpecialOffers>
                <h2></h2>
         </div>
     );
