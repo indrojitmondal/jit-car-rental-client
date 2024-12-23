@@ -25,7 +25,7 @@ return (
                         <div className='text-white  bg-black'>
 
                             
-                            <img className='mx-auto pt-4 mt-36 md:mt-0 w-36 h-36' src={logo} alt="" />
+                             <Link to={'/'}> <img className='mx-auto pt-4 mt-36 md:mt-0 w-36 h-36' src={logo} alt="" /> </Link>
                             <h2 className='font-bold'>JIT CAR HOUSE</h2>
 
                             <div className='mt-5 grid grid-cols-1 md:grid-cols-3 gap-5 align-top pb-8'>

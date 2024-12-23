@@ -62,15 +62,15 @@ const Navbar = () => {
               className='menu  dropdown-content mt-3 z-[1]  p-2 shadow bg-header_bg  w-52'
             >
               <li>
-                <Link to='/add-job' className='justify-between'>
+                <Link to='/add-car' className='justify-between'>
                   Add Car
                 </Link>
               </li>
               <li>
-                <Link to='/my-posted-jobs'>My Cars</Link>
+                <Link to='/my-cars'>My Cars</Link>
               </li>
               <li>
-                <Link to='/my-bids'>My Bookings</Link>
+                <Link to='/my-bookings'>My Bookings</Link>
               </li>
              
               <li className='mt-2'>

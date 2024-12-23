@@ -7,6 +7,9 @@ import Home from "../pages/Home/Home";
 import Registration from "../pages/Home/Authentication/Register";
 import ErrorPage from "../pages/Home/ErrorPage";
 import AvailableCars from "../pages/Home/AvailableCars";
+import AddCar from "../pages/Home/AddCar";
+import MyCars from "../pages/Home/MyCars";
+import MyBookings from "../pages/Home/MyBookings";
 
 
   const router = createBrowserRouter([
@@ -22,6 +25,18 @@ import AvailableCars from "../pages/Home/AvailableCars";
           path: '/available-cars',
           element: <AvailableCars></AvailableCars>
   
+        },
+        {
+          path:'/add-car',
+          element: <AddCar></AddCar>
+        },
+        {
+          path: '/my-cars',
+          element: <MyCars></MyCars>
+        },
+        {
+          path: '/my-bookings',
+          element: <MyBookings></MyBookings>
         }
        
       ]
