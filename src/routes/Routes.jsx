@@ -5,6 +5,8 @@ import Main from "../layouts/Main";
 import Home from "../pages/Home/Home";
  import Login from "../pages/Home/Authentication/Login";
 import Registration from "../pages/Home/Authentication/Register";
+import ErrorPage from "../pages/Home/ErrorPage";
+import AvailableCars from "../pages/Home/AvailableCars";
 
 
   const router = createBrowserRouter([
@@ -16,6 +18,11 @@ import Registration from "../pages/Home/Authentication/Register";
           path: '',
           element: <Home></Home>
         },
+        {
+          path: '/available-cars',
+          element: <AvailableCars></AvailableCars>
+  
+        }
        
       ]
     },
@@ -26,6 +33,10 @@ import Registration from "../pages/Home/Authentication/Register";
     {
       path: '/registration',
       element: <Registration></Registration>
+    },
+    {
+      path: "*",
+      element: <ErrorPage></ErrorPage>
     }
   ]);
 export default router;
