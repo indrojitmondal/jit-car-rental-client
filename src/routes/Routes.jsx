@@ -16,15 +16,16 @@ import Registration from "../pages/Home/Authentication/Register";
           path: '',
           element: <Home></Home>
         },
-        {
-          path: '/logIn',
-          element: <Login></Login>
-        },
-        {
-          path: '/registration',
-          element: <Registration></Registration>
-        }
+       
       ]
     },
+    {
+      path: '/logIn',
+      element: <Login></Login>
+    },
+    {
+      path: '/registration',
+      element: <Registration></Registration>
+    }
   ]);
 export default router;

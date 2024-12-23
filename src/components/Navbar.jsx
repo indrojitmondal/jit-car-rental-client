@@ -22,8 +22,8 @@ const Navbar = () => {
     <div className='navbar bg-header_bg text-white shadow-sm container px-4 mx-auto'>
       <div className='flex-1'>
         <Link to='/' className='flex gap-2 items-center'>
-          <img className='w-auto h-7' src={logo} alt='' />
-          <span className='font-bold'>JIT CAR HOUSE</span>
+          <img className='w-auto h-20' src={logo} alt='' />
+          <span className='font-bold '>JIT CAR HOUSE</span>
         </Link>
       </div>
       <div className='flex-none'>
@@ -42,7 +42,7 @@ const Navbar = () => {
           )}
         </ul>
 
-        {user && (
+        {user  && (
           <div className='dropdown  dropdown-end z-50 mt-1'>
             <div
               tabIndex={0}
@@ -59,18 +59,24 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className='menu menu-sm dropdown-content  z-[1] shadow bg-header_bg text-white rounded-md  w-52'
+              className='menu  dropdown-content mt-3 z-[1]  p-2 shadow bg-header_bg  w-52'
             >
-           
-              {/* <li>
-                
-                 <h2 className='text-center'> {user?.displayName}</h2>
-              
-              </li> */}
+              <li>
+                <Link to='/add-job' className='justify-between'>
+                  Add Car
+                </Link>
+              </li>
+              <li>
+                <Link to='/my-posted-jobs'>My Cars</Link>
+              </li>
+              <li>
+                <Link to='/my-bids'>My Bookings</Link>
+              </li>
+             
               <li className='mt-2'>
                 <button
                   onClick={logOut}
-                  className='hover:bg-header_bg block hover:text-white text-center'
+                  className='block text-center'
                 >
                   Logout
                 </button>

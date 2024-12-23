@@ -1,3 +1,4 @@
+
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 // import bgImg from '../../assets/images/register.jpg'
 
@@ -10,11 +11,14 @@ import { AuthContext } from '../../../providers/AuthProvider'
 import RegisterLottieAnimation from "../../../assets/lottiefiles/registerLottiefile.json";
 import Lottie from 'lottie-react'
 import { FiEye, FiEyeOff } from 'react-icons/fi'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../../../firebase/firebase.init'
+import Footer from '../../../components/Footer'
 
 const Registration = () => {
   const navigate = useNavigate()
   const location = useLocation()
-  const from = location.state || '/'
+  const from =  '/logIn'
   const { signInWithGoogle, createUser, updateUserProfile, user, setUser } =
     useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
@@ -23,32 +27,50 @@ const Registration = () => {
   const handleSignUp = async e => {
     e.preventDefault()
     const form = e.target
-    const email = form.email.value
+    const email = form.email.value;
     const name = form.name.value
     const photo = form.photo.value
     const pass = form.password.value
     console.log({ email, pass, name, photo })
-    try {
-      //2. User Registration
-      const result = await createUser(email, pass)
+  //   try {
+  //     createUserWithEmailAndPassword(auth, email, pass)
+  // .then((userCredential) => {
+  //   // Signed up 
+  //   const user = userCredential.user;
+  //   navigate('/logIn');
+  //   // ...
+  // })
+  // .catch((error) => {
+  //   const errorCode = error.code;
+  //   const errorMessage = error.message;
+  //   // ..
+  // });
+     
+  //   } catch (error) {
+      
+  //   }
+  try {
+    //2. User Registration
+    const result = await createUser(email, pass)
 
-      await updateUserProfile(name, photo)
-      // Optimistic UI Update
-      setUser({ ...result?.user, photoURL: photo, displayName: name })
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_API_URL}/jwt`,
-        {
-          email: result?.user?.email,
-        },
-        { withCredentials: true }
-      )
-      console.log(data)
-      navigate(from, { replace: true })
-      toast.success('Signup Successful')
-    } catch (err) {
-      console.log(err)
-      toast.error(err?.message)
-    }
+    await updateUserProfile(name, photo)
+    // Optimistic UI Update
+    //setUser({ ...result?.user, photoURL: photo, displayName: name })
+    const { data } = await axios.post(
+      `${import.meta.env.VITE_API_URL}/jwt`,
+      {
+        email: result?.user?.email,
+      },
+      { withCredentials: true }
+    )
+    console.log(data)
+    navigate('/logIn', { replace: true })
+    toast.success('Signup Successful')
+  } catch (err) {
+    console.log(err)
+    toast.error(err?.message)
+  }
+    
   }
 
   // Google Signin
@@ -76,17 +98,41 @@ const Registration = () => {
     setShowPassword(!showPassword);
    }
   return (
-    <div className='flex justify-center items-center min-h-[calc(100vh-306px)] my-12'>
+    <div className=''> 
+       <Link to={'/'}> 
+     
+       <img className='h-60 mx-auto pt-5' src={logo} alt="" />
+      
+       </Link>
+       <div className='flex justify-center'>
+          <p className=' text-xl font-bold text-center text-gray-600 '>
+            Sign Up <br />
+          
+          </p>
+
+          </div>
+          <div className='flex justify-center'>
+          <p className=' text-xl  text-center text-gray-600 '>
+            Explore More Car on JIT CAR HOUSE <br />
+          
+          </p>
+
+          </div>
+        
+
+    <div className='flex  min-h-[calc(100vh-306px)] '>
+    
+       
       <div className='flex w-full max-w-sm mx-auto overflow-hidden  bg-white rounded-lg shadow-lg  lg:max-w-4xl '>
         <div className='w-full px-6 py-8 md:px-8 lg:w-1/2'>
           <div className='flex justify-center mx-auto'>
             {/* <img className='w-auto h-7 sm:h-8' src={logo} alt='' /> */}
-            <img className='h-20' src={logo} alt="" />
+           {/* <img className='h-20' src={logo} alt="" />
+           */}
+            
           </div>
 
-          <p className='mt-3 text-xl text-center text-gray-600 '>
-            Get Your Free Account Now.
-          </p>
+         
 
           <div
             onClick={handleGoogleSignIn}
@@ -114,20 +160,25 @@ const Registration = () => {
             </div>
 
             <span className='w-5/6 px-4 py-3 font-bold text-center'>
-              Sign in with Google
+              Sign Up with Google
             </span>
           </div>
 
           <div className='flex items-center justify-between mt-4'>
             <span className='w-1/5 border-b  lg:w-1/4'></span>
 
-            <div className='text-xs text-center text-gray-500 uppercase  hover:underline'>
+            {/* <div className='text-xs text-center text-gray-500 uppercase  hover:underline'>
               or Registration with email
-            </div>
+            </div> */}
 
             <span className='w-1/5 border-b dark:border-gray-400 lg:w-1/4'></span>
           </div>
           <form onSubmit={handleSignUp}>
+            {/* <h2>Or Registration with email and password</h2>
+             */}
+              <div className='text-xs text-center text-gray-500 uppercase  hover:underline'>
+              or Registration with email
+            </div>
             <div className='mt-4'>
               <label
                 className='block mb-2 text-sm font-medium text-gray-600 '
@@ -226,6 +277,9 @@ const Registration = () => {
         </div>
       </div>
     </div>
+      {/* <Footer></Footer> */}
+    </div>
+    
   )
 }
 

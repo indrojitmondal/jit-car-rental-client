@@ -26,7 +26,7 @@ return (
 
                             
                             <img className='mx-auto pt-4 mt-36 md:mt-0 w-36 h-36' src={logo} alt="" />
-
+                            <h2 className='font-bold'>JIT CAR HOUSE</h2>
 
                             <div className='mt-5 grid grid-cols-1 md:grid-cols-3 gap-5 align-top pb-8'>
                                 <div className="about space-y-3">
@@ -61,10 +61,10 @@ return (
                                     <ul className='pl-8 list-disc flex flex-col '>
                                        
                                         <Link to={'/'}>Home</Link>
-                                        <Link to={'/reviews'}>All Reviews</Link>
-                                        <Link to={'/addReview'}>Add Review</Link>
-                                        <Link to={'/myReviews'}>My Reviews</Link>
-                                        <Link to={'/myWatchlist'}>Game WatchList</Link>
+                                        <Link to={'/'}>Available Cars</Link>
+                                        <Link to={'/'}>Add Car</Link>
+                                        <Link to={'/'}>My Cars</Link>
+                                        <Link to={'/'}>My Bookings</Link>
                                     </ul>
 
 
