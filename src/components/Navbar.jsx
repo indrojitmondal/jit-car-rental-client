@@ -49,7 +49,7 @@ const Navbar = () => {
             </div>
           </div>
           <img src={logo} className='w-16 h-16 md:w-40 md:h-36' alt="logo" />
-           <h2 className='text-xl lg:text-2xl ml-1 font-bold text-orange-300'>JIT CAR HOUSE</h2>
+           <h2 className='text-xl lg:text-2xl ml-1 font-bold text-orange-300'>JIIT CAR HOUSE</h2>
         
         </div>
         <div className="navbar-center hidden lg:flex lg:flex-col">
