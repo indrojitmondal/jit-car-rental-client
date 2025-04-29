@@ -16,22 +16,19 @@ const Navbar = () => {
 
     setMenu(!menu);
   }
+  
   const links = (
     <div className='flex flex-col md:flex-row items-center text-lg gap-5'>
       <NavLink to={'/'}>Home</NavLink>
       <NavLink to={'/available-cars'}>Available Cars</NavLink>
-      <NavLink to={'/add-car'}>Add Car</NavLink>
-      <NavLink to={'/my-cars'}>My Cars</NavLink>
-      <NavLink to={'/my-bookings'}>My Bookings</NavLink>
-      {/* {
-        path === '/' &&
-        <DarkModeSwitch
-          className='ml-5 '
-          checked={isDarkMode}
-          onChange={toggleDarkMode}
-          size={50}
-        />
-      } */}
+     
+      
+    
+      {user? <NavLink to={'/add-car'}>Add Car</NavLink> : ''}
+      {user? <NavLink to={'/my-cars'}>My Cars</NavLink>: ''}
+      {user? <NavLink to={'/my-bookings'}>My Bookings</NavLink> : ''}
+     
+    
     </div>
   );
  
@@ -82,9 +79,6 @@ const Navbar = () => {
              {/* User and Logout */}
              <div>
             <div className='flex items-center justify-between '>
-
-
-
                
                 <div className="">
                     <div
@@ -93,9 +87,10 @@ const Navbar = () => {
                     >
                         <img
                             className="rounded-full"
-                            src={user.photoURL }
+                            src={user.photoURL}
                             alt="UserAvatar"
                         />
+                       
                     </div>
                 </div>
 
